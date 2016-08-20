@@ -4,7 +4,7 @@ import chai = require("chai");
 const expect = chai.expect;
 
 
-before(function () {
+before(() => {
 
 
 
@@ -12,9 +12,9 @@ before(function () {
 })
 
 
-describe("XXXXXXXXX", function () {
+describe("XXXXXXXXX", () => {
 
-    it("YYYYYY", function (done) {
+    it("YYYYYY", (done) => {
         done()
     })
 
