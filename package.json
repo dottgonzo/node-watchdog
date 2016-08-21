@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "bluebird": "^3.4.1",
-    "systemd-services": "^1.0.0"
+    "systemd-services": "^1.0.1"
   }
 }
