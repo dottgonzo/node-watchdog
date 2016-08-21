@@ -14,14 +14,18 @@ const ns = new SysService()
 interface IWatchdogConf {
     hardware?: string;
     pings?: string[];
-    interface?: string;
-    file?: string;
+    interfaces?: string[];
+    files?: {
+        name: string;
+        change: number
+    }[];
     maxLoad1?: number;
     maxLoad5?: number;
     maxLoad15?: number;
     minMemory?: number;
     alloctableMemory?: number;
     configFile?: string;
+    pidFile?: string;
 }
 
 interface IStatus {
@@ -54,6 +58,24 @@ export default class watchDog {
                     conf += 'ping = ' + o.pings[i] + '\n'
                 }
             }
+            if (o.files) {
+                for (let i = 0; i < o.files.length; i++) {
+                    if (o.files[i].name && o.files[i].change) {
+                        conf += 'file = ' + o.files[i].name + '\n'
+                        conf += 'change = ' + o.files[i].change + '\n'
+                    } else {
+                        throw Error('you must specify filename and change timer')
+                    }
+                }
+
+            }
+
+
+
+            if (o.pidFile) {
+                conf += 'pidfile = ' + o.pidFile + '\n'
+            }
+
 
             if (o.hardware) {
                 console.log('TODO')

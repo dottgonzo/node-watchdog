@@ -14,7 +14,18 @@ const watchConf = {
         '192.168.1.1',
         '192.168.1.2'
     ],
-    maxLoad1: 25
+    files: [
+        {
+            name: '/tmp/nodeapp.change',
+            change: 1000
+        },
+        {
+            name: '/root/.forever/systarter.log',
+            change: 1000
+        }
+    ],
+    maxLoad1: 25,
+    pidFile:'/root/.forever/pids/systarter.pid'
 }
 
 let Wdog: watchDog;
