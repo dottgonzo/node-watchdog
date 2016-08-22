@@ -26,6 +26,7 @@ interface IWatchdogConf {
     alloctableMemory?: number;
     configFile?: string;
     pidFile?: string;
+    repairBinary?:string;
 }
 
 interface IStatus {
@@ -77,8 +78,13 @@ export default class watchDog {
             }
 
 
-            if (o.hardware) {
-                console.log('TODO')
+            if (o.pidFile) {
+                conf += 'pidfile = ' + o.pidFile + '\n'
+            }
+
+
+            if (o.repairBinary) {
+                conf += 'repair-binary = ' + o.repairBinary + '\n'
             }
 
             fs.writeFileSync(_this.configFile, conf, { encoding: 'utf-8' })
