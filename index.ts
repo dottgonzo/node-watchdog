@@ -78,10 +78,6 @@ export default class watchDog {
             }
 
 
-            if (o.pidFile) {
-                conf += 'pidfile = ' + o.pidFile + '\n'
-            }
-
 
             if (o.repairBinary) {
                 conf += 'repair-binary = ' + o.repairBinary + '\n'
