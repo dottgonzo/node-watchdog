@@ -1,6 +1,6 @@
 {
   "name": "node-embedded-watchdog",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "bluebird": "^3.4.1",
-    "systemd-services": "^1.0.1"
+    "systemd-services": "^1.0.2"
   }
 }
