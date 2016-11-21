@@ -27,6 +27,7 @@ interface IWatchdogConf {
     configFile?: string;
     pidFile?: string;
     repairBinary?:string;
+    watchdogDevice?:string;
 }
 
 interface IStatus {
@@ -73,10 +74,13 @@ export default class watchDog {
 
 
 
+            if (o.watchdogDevice) {
+                conf += 'watchdog-device = ' + o.watchdogDevice + '\n'
+            }
+
             if (o.pidFile) {
                 conf += 'pidfile = ' + o.pidFile + '\n'
             }
-
 
 
             if (o.repairBinary) {
