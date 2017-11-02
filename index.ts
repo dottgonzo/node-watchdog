@@ -102,7 +102,11 @@ export default class watchDog {
             ns.start('watchdog').then((a) => {
                 resolve(a)
             }).catch((err) => {
-                reject(err)
+                ns.start('watchdog').then((a) => {
+                    resolve(a)
+                }).catch((err) => {
+                    reject(err)
+                })
             })
 
         })
