@@ -26,8 +26,8 @@ interface IWatchdogConf {
     alloctableMemory?: number;
     configFile?: string;
     pidFile?: string;
-    repairBinary?:string;
-    watchdogDevice?:string;
+    repairBinary?: string;
+    watchdogDevice?: string;
 }
 
 interface IStatus {
@@ -116,7 +116,11 @@ export default class watchDog {
             ns.stop('watchdog').then((a) => {
                 resolve(a)
             }).catch((err) => {
-                reject(err)
+                ns.stop('watchdog').then((a) => {
+                    resolve(a)
+                }).catch((err) => {
+                    reject(err)
+                })
             })
         })
 
